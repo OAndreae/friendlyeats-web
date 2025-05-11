@@ -14,12 +14,7 @@ function useUserSession(initialUser) {
     return onIdTokenChanged(async (user) => {
       if (user) {
         const idToken = user.getIdToken();
-        setCookie("__session", idToken, {
-          httpOnly: true,
-          secure: true,
-          sameSite: 'strict',
-          path: '/'
-        });
+        setCookie("__session", idToken);
       } else {
         await deleteCookie("__session");
       }
