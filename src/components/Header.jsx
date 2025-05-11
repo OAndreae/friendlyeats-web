@@ -13,7 +13,7 @@ function useUserSession(initialUser) {
   useEffect(() => {
     return onIdTokenChanged(async (user) => {
       if (user) {
-        const idToken = user.getIdToken();
+        const idToken = await user.getIdToken();
         setCookie("__session", idToken);
       } else {
         await deleteCookie("__session");
