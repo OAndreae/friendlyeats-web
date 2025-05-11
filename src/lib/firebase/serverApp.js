@@ -11,9 +11,6 @@ import { getAuth } from "firebase/auth";
 // and Static Site Generation
 export async function getAuthenticatedAppForUser() {
   const authIdToken = (await cookies()).get("__session")?.value;
-  if (!authIdToken) {
-    throw new Error("No auth ID token found");
-  }
 
   const firebaseServerApp = initializeServerApp(
     initializeApp(),
@@ -24,6 +21,6 @@ export async function getAuthenticatedAppForUser() {
 
   const auth = getAuth(firebaseServerApp);
   await auth.authStateReady();
-  
+
   return { firebaseServerApp, currentUser: auth.currentUser };
 }
