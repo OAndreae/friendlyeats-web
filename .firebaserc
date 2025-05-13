@@ -1,6 +1,7 @@
 {
   "projects": {
-    "friendlyeats-codelab": "friendlyeats-demo-e4b6a"
+    "friendlyeats-codelab": "friendlyeats-demo-e4b6a",
+    "default": "friendlyeats-demo-e4b6a"
   },
   "targets": {},
   "etags": {}
